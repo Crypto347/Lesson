@@ -1,0 +1,16 @@
+.Person {
+    width: 60%;
+    margin: 16px auto;
+    border: 1px solid rgb(99, 209, 176);
+    box-shadow: 0 2px 3px rgb(124, 111, 111);
+    padding: 16px;
+    text-align: center;
+}
+
+.Button {
+    background: rgb(190, 61, 61);
+    font: inherit;
+    border: 1px solid blue;
+    padding: 8px;
+    cursor: pointer;
+}
