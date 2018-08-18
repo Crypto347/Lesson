@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import classes from './App.css';
 
 import Person from '../components/Persons/Persons'
 import Cockpit from '../components/Cockpit/Cockpit';
 
-class App extends Component {
+class App extends PureComponent {
   constructor(props){
     super(props);
     console.log('[App.js] inside constructor');
@@ -22,6 +22,12 @@ class App extends Component {
   }
   componentDidMount(){
     console.log('[App.js] inside componentDidMount()');
+  }
+  componentWillUpdate(nextProps,nextState){
+    console.log('[UPDATE App.js] inside componentWillUpdate()',nextProps,nextState); 
+  }
+  componentDidUpdate(){
+    console.log('[UPDATE App.js] inside componentDidUpdate()'); 
   }
   nameChangeHandler = (event, id)=>{
     const personIndex = this.state.persons.findIndex( p =>{
@@ -65,6 +71,7 @@ class App extends Component {
 
     return (
     <div className = {classes.App}> 
+    <button onClick={()=>{this.setState({showPersons: true});}}>Press</button>
       <Cockpit 
       addTitle={this.props.title}
       showPersons={this.state.showPersons}
