@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import classes from './App.css';
 
-import Person from '../components/Persons/Persons'
+import Persons from '../components/Persons/Persons'
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends PureComponent {
@@ -15,7 +15,7 @@ class App extends PureComponent {
         {id: '89sdcll', name:'St', age: 26},
       ],
       showPersons: false
-  }
+  };
 }
   componentWillMount(){
     console.log('[App.js] inside componentWillMount()', this.state);
@@ -31,7 +31,8 @@ class App extends PureComponent {
   }
   nameChangeHandler = (event, id)=>{
     const personIndex = this.state.persons.findIndex( p =>{
-      return p.id === id});
+      return p.id === id
+    });
     
     const person = {
       ...this.state.persons[personIndex]
@@ -58,11 +59,11 @@ class App extends PureComponent {
   }
 
   render() {
-    let persons = null;
     console.log('[App.js] inside render()');
+    let persons = null;
 
     if(this.state.showPersons){
-      persons = <Person 
+      persons = <Persons
         persons={this.state.persons}
         clicked={this.deleteNameHandler}
         changed={this.nameChangeHandler}/>
@@ -70,8 +71,8 @@ class App extends PureComponent {
    
 
     return (
-    <div className = {classes.App}> 
-    <button onClick={()=>{this.setState({showPersons: true});}}>Press</button>
+    <div className={classes.App}> 
+    <button onClick={()=>{this.setState({showPersons: true})}}>Press</button>
       <Cockpit 
       addTitle={this.props.title}
       showPersons={this.state.showPersons}
@@ -79,7 +80,6 @@ class App extends PureComponent {
       clicked={this.togglePersonsHandler}/>
       {persons} 
     </div>
-    
     );
   }
 }
