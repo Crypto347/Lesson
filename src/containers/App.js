@@ -23,15 +23,22 @@ class App extends PureComponent {
       authenticated:false
   };
 }
-  componentWillMount(){
-    console.log('[App.js] inside componentWillMount()', this.state);
+  // componentWillMount(){
+  //   console.log('[App.js] inside componentWillMount()', this.state);
+  // }
+  static getDerivedStateFromProps(nextProps, prevState){
+    console.log('[UPDATE App.js] inside getDerivedStateFromProps()',nextProps,prevState);
+    return prevState;
+  }
+  getSnapshotBeforeUpdate(){
+    console.log('[UPDATE App.js] inside getSnapshotBeforeUpdate()');
   }
   componentDidMount(){
     console.log('[App.js] inside componentDidMount()');
   }
-  componentWillUpdate(nextProps,nextState){
-    console.log('[UPDATE App.js] inside componentWillUpdate()',nextProps,nextState); 
-  }
+  // componentWillUpdate(nextProps,nextState){
+  //   console.log('[UPDATE App.js] inside componentWillUpdate()',nextProps,nextState); 
+  // }
   componentDidUpdate(){
     console.log('[UPDATE App.js] inside componentDidUpdate()'); 
   }
