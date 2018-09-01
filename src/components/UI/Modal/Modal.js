@@ -20,7 +20,8 @@ class Modal extends Component{
         <Backdrop show={this.props.show} clicked={this.props.modalClosed}/>
         <div className={classes.Modal}
             style={{transform: this.props.show ? 'translate Y/0':'translate Y/(-100)',
-                    opacity: this.props.show ? '1':'0'}}>
+                    opacity: this.props.show ? '1':'0',
+                    pointerEvents: this.props.show ? 'all' : 'none'}}>
             {this.props.children}
         </div>
     </Aux>
