@@ -26,7 +26,7 @@ class BurgerBuilder extends Component{
     }
 
     purchaseContinuedHandler = () => {
-        alert('Yoy Continue!');
+        alert('You Continue!');
     }
     purchaseCancelHandler = () => {
         this.setState({purchasing: false});
